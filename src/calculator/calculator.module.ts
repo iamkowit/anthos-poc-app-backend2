@@ -3,7 +3,7 @@ import { CalculatorController } from './calculator.controller';
 import { CalculatorService } from './calculator.service';
 
 @Module({
-    controllers: [CalculatorController],
-    providers: [CalculatorService],
+  controllers: [CalculatorController],
+  providers: [CalculatorService],
 })
 export class CalculatorModule {}

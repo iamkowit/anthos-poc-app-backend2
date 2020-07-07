@@ -9,12 +9,15 @@ async function bootstrap() {
     transport: Transport.GRPC,
     options: {
       url: '0.0.0.0:50051',
-      package: 'calculator',
-      protoPath: [join(__dirname, '../api/proto/v1/calculator.proto')],
+      package: ['grpc.health.v1', 'calculator'],
+      protoPath: [
+        join(__dirname, '../api/proto/v1/healthcheck.proto'),
+        join(__dirname, '../api/proto/v1/calculator.proto'),
+      ],
     },
   });
-  await app.startAllMicroservicesAsync()
-  await app.listen(3000);
+  await app.startAllMicroservicesAsync();
+  await app.listen(3001);
 }
 
 bootstrap();
