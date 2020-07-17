@@ -14,7 +14,7 @@ async function bootstrap() {
   app.connectMicroservice<MicroserviceOptions>({
     transport: Transport.GRPC,
     options: {
-      url: '0.0.0.0:50051',
+      url: `0.0.0.0:${process.env.GRPC_PORT || 50051}`,
       package: ['grpc.health.v1', 'calculator'],
       protoPath: [
         join(__dirname, '../api/proto/v1/healthcheck.proto'),
